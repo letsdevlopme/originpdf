@@ -21,7 +21,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: {
-    default: "OriginPDF – Free PDF Tools",
+    default: "OriginPDF – Free PDF to Word Converter",
     template: "%s | OriginPDF",
   },
   description:
