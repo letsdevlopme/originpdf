@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Roboto } from "next/font/google";
 import Script from "next/script";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,11 +24,11 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: {
-    default: "OriginPDF – Free PDF to Word Converter",
+    default: "OriginPDF – Free PDF to DOC Converter – Convert PDF to Word Online (No Watermark)",
     template: "%s | OriginPDF",
   },
   description:
-    "OriginPDF offers fast, accurate, and free PDF tools – starting with PDF to Word conversion. Clean formatting, no signup.",
+    "Convert PDF to Word instantly and free with OriginPDF. No watermark, no signup. Get editable DOCX files from your PDFs with formatting preserved – online and secure.",
   keywords: [
     "OriginPDF",
     "PDF to Word",
@@ -89,7 +91,9 @@ export default function RootLayout({
             gtag('config', 'G-YR8VJQNR8P');
           `}
         </Script>
+        <Header/>
         {children}
+        <Footer/>
       </body>
     </html>
   );

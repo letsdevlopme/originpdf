@@ -1,24 +1,38 @@
-"use client";
-
-import Head from "next/head";
-import PdfToDocConverter from "@/components/PdfToDocConverter";
+import { Metadata } from "next";
 import Script from "next/script";
+import PdfToDocConverter from "@/components/PdfToDocConverter";
+import Image from "next/image";
+import FadeInSection from "@/components/Animations/FadeInSection";
 
+export const metadata: Metadata = {
+  title: "Free PDF to Word Converter – No Sign-Up, No Watermark | OriginPDF",
+  description:
+    "Convert your PDF to editable Word documents instantly. OriginPDF offers 100% free PDF to DOCX conversion with no watermarks, no sign-up, and formatting preserved. Works on all devices.",
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://www.originpdf.com/pdf-to-doc",
+  },
+  openGraph: {
+    title: "Free PDF to DOC Converter - Online & Secure | OriginPDF",
+    description:
+      "Convert PDFs to editable Word documents in seconds with OriginPDF.",
+    url: "https://www.originpdf.com/pdf-to-doc",
+    type: "website",
+    images: [
+      {
+        url: "https://www.originpdf.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Convert PDF to DOCX with OriginPDF",
+      },
+    ],
+  },
+};
 
 export default function PdfToDocPage() {
   return (
     <>
-      <Head>
-        <title>Convert PDF to DOC - Free Online PDF to Word Converter | PDFToolbox</title>
-        <meta name="description" content="Fast, secure, and free PDF to DOC converter. Easily turn your PDFs into editable Word documents with our online tool – no signup required." />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://yourdomain.com/pdf-to-doc" />
-        <meta property="og:title" content="Free PDF to DOC Converter - Online & Secure" />
-        <meta property="og:description" content="Convert PDFs to editable Word documents in seconds." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yourdomain.com/pdf-to-doc" />
-      </Head>
-
+      {/* SEO Structured Data */}
       <Script id="ld-json" type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
@@ -28,7 +42,7 @@ export default function PdfToDocPage() {
             "Convert your PDFs to editable DOC files online for free. Fast, secure, and easy to use — no signup required.",
           operatingSystem: "Web",
           applicationCategory: "Utility",
-          url: "https://yourdomain.com/pdf-to-doc",
+          url: "https://www.originpdf.com/pdf-to-doc",
           offers: {
             "@type": "Offer",
             price: "0",
@@ -43,67 +57,95 @@ export default function PdfToDocPage() {
       </Script>
 
       <main className="min-h-screen w-full bg-white px-4 sm:px-6 lg:px-8 py-12">
-  {/* PAGE TITLE */}
-  <h1 className="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-14 leading-tight tracking-tight">
-    Free PDF to DOC Converter
-  </h1>
 
-  {/* TOOL SECTION */}
-  <section className="mb-20 flex justify-center">
-    <PdfToDocConverter />
-  </section>
+        {/* Hero Title */}
+        <FadeInSection>
+          <div className="text-center max-w-3xl mx-auto">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight">
+              Free PDF to Word Converter (DOCX)
+            </h1>
+            <p className="text-gray-500 mt-2 text-lg sm:text-xl font-normal">
+              Online, Fast & No Watermark
+            </p>
+          </div>
+        </FadeInSection>
 
-  {/* INFO SECTION */}
-  <section className="max-w-4xl w-full mx-auto space-y-14 text-gray-800 text-[1.06rem] leading-7">
-    {/* WHY CONVERT */}
-    <div>
-      <h2 className="text-2xl font-semibold mb-3 text-gray-900">Why Convert PDF to DOC?</h2>
-      <p>
-        PDFs are great for sharing, but editing them is a challenge. Our tool converts PDFs into fully editable DOC files, 
-        so you can make changes in Microsoft Word or Google Docs — without losing formatting.
-      </p>
-    </div>
+        {/* Tool Box */}
+        <section className="mt-14 mb-20 flex justify-center">
+          <PdfToDocConverter />
+        </section>
 
-    {/* HOW TO USE */}
-    <div>
-      <h2 className="text-2xl font-semibold mb-3 text-gray-900">How to Use the Converter</h2>
-      <ol className="list-decimal space-y-2 pl-6 text-gray-900">
-        <li className="text-black">Upload your PDF using the drag-and-drop area.</li>
-        <li>Click <strong>“Convert to DOC”</strong> and wait a few seconds.</li>
-        <li>Download your converted Word file instantly.</li>
-      </ol>
-    </div>
+        {/* Why Convert */}
+        <FadeInSection>
+          <section className="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-0 py-10 text-gray-800 text-[1.06rem] leading-7">
+            <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 shadow-sm p-6 sm:p-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 font-[Roboto]">
+                Why Convert PDF to Word (DOCX)?
+              </h2>
+              <p className="font-[Roboto] text-gray-700 text-[1.05rem] leading-relaxed">
+                PDFs are great for sharing — but editing them can be a hassle. Our converter turns static PDFs into fully editable Word documents (DOCX), so you can make changes in Microsoft Word or Google Docs{" "}
+                <strong>without breaking layout or formatting</strong>. Whether you need to update a contract, revise a report, or reuse text, converting to DOC makes it easy.
+              </p>
+              <div className="mt-6">
+                <Image
+                  src="/images/whyoriginpdf.jpg"
+                  width={800}
+                  height={400}
+                  alt="How PDF to Word conversion works"
+                  className="rounded-md w-full shadow-sm"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </section>
+        </FadeInSection>
 
-    {/* FEATURES */}
-    <div>
-      <h2 className="text-2xl font-semibold mb-3 text-gray-900">Key Features</h2>
-      <ul className="list-disc space-y-2 pl-6 text-gray-700">
-        <li>100% free — no limits, no watermarks</li>
-        <li>No email or account required</li>
-        <li>Fast & accurate conversion engine</li>
-        <li>Secure — files are never stored or reused</li>
-      </ul>
-    </div>
+        {/* How to Use */}
+        <FadeInSection>
+          <div className="max-w-4xl w-full mx-auto px-4 mt-16">
+            <h2 className="text-2xl font-semibold mb-3 text-gray-900 font-[Roboto]">How to Convert PDF to Word</h2>
+            <ol className="list-decimal pl-6 space-y-2 text-gray-800">
+              <li>Upload your PDF using the drag-and-drop area.</li>
+              <li>Click <strong>“Convert to Word”</strong> and wait a few seconds.</li>
+              <li>Download your converted Word document instantly.</li>
+            </ol>
+          </div>
+        </FadeInSection>
 
-    {/* SECURITY */}
-    <div>
-      <h2 className="text-2xl font-semibold mb-3 text-gray-900">Is My File Safe?</h2>
-      <p>
-        Absolutely. Your files are either processed directly in your browser or securely on our backend and deleted immediately.
-        We never store or access your files after conversion.
-      </p>
-    </div>
+        {/* Key Features */}
+        <FadeInSection>
+          <div className="max-w-4xl w-full mx-auto px-4 mt-14">
+            <h2 className="text-2xl font-semibold mb-3 text-gray-900 font-[Roboto]">Key Features</h2>
+            <ul className="list-disc pl-6 space-y-2 text-gray-700">
+              <li>No watermark, ever</li>
+              <li>No sign-up or email needed</li>
+              <li>Accurate formatting (fonts, images, layout preserved)</li>
+              <li>Works on desktop & mobile</li>
+              <li>Free forever – no hidden limits</li>
+            </ul>
+          </div>
+        </FadeInSection>
 
-    {/* FORMATS */}
-    <div>
-      <h2 className="text-2xl font-semibold mb-3 text-gray-900">Supported Formats</h2>
-      <p>
-        Currently, we support <strong>PDF to DOC</strong> (Microsoft Word). Support for DOCX, TXT, and RTF is coming soon.
-      </p>
-    </div>
-  </section>
-</main>
+        {/* File Security */}
+        <FadeInSection>
+          <div className="max-w-4xl w-full mx-auto px-4 mt-14">
+            <h2 className="text-2xl font-semibold mb-3 text-gray-900 font-[Roboto]">Your Files Stay Private</h2>
+            <p className="text-gray-700">
+              We use encrypted connections and delete your file after conversion. No data is ever stored or shared. You're safe with OriginPDF.
+            </p>
+          </div>
+        </FadeInSection>
 
+        {/* Supported Formats */}
+        <FadeInSection>
+          <div className="max-w-4xl w-full mx-auto px-4 mt-14 mb-16">
+            <h2 className="text-2xl font-semibold mb-3 text-gray-900 font-[Roboto]">Supported Formats</h2>
+            <p className="text-gray-700">
+              We currently support <strong>PDF to DOC (Microsoft Word)</strong>. Support for DOCX, TXT, and RTF is coming soon.
+            </p>
+          </div>
+        </FadeInSection>
+      </main>
     </>
   );
 }
