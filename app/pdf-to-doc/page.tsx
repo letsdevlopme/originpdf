@@ -6,11 +6,11 @@ import FadeInSection from "@/components/Animations/FadeInSection";
 
 export const metadata: Metadata = {
   title: "Free PDF to Word Converter – No Sign-Up, No Watermark | OriginPDF",
-  description:
-    "Convert your PDF to editable Word documents instantly. OriginPDF offers 100% free PDF to DOCX conversion with no watermarks, no sign-up, and formatting preserved. Works on all devices.",
+  description: "...",
   robots: "index, follow",
+  metadataBase: new URL("https://www.originpdf.com"),
   alternates: {
-    canonical: "https://www.originpdf.com/pdf-to-doc",
+    canonical: "/pdf-to-doc",
   },
   openGraph: {
     title: "Free PDF to DOC Converter - Online & Secure | OriginPDF",

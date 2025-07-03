@@ -24,7 +24,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: {
-    default: "OriginPDF – Free PDF to DOC Converter – Convert PDF to Word Online (No Watermark)",
+    default: "OriginPDF – Free PDF to DOC Converter",
     template: "%s | OriginPDF",
   },
   description:
@@ -38,31 +38,14 @@ export const metadata: Metadata = {
     "online docx generator",
     "PDF editing tools",
   ],
-  alternates: {
-    canonical: "https://www.originpdf.com/pdf-to-doc",
-  },
   metadataBase: new URL("https://originpdf.com"),
-  openGraph: {
-    title: "OriginPDF – Free PDF to Word Converter",
-    description:
-      "Convert PDF to Word in seconds with high accuracy and formatting. No signup, 100% free.",
-    url: "https://originpdf.com",
-    siteName: "OriginPDF",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "OriginPDF – Free PDF Tools",
-    description:
-      "Free and fast PDF conversion tools including PDF to Word, powered by OriginPDF.",
-    creator: "@originpdf",
-  },
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
-  }
+  },
 };
+
 
 export default function RootLayout({
   children,
