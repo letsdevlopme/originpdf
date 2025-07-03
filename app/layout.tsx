@@ -38,6 +38,9 @@ export const metadata: Metadata = {
     "online docx generator",
     "PDF editing tools",
   ],
+  alternates: {
+    canonical: "https://www.originpdf.com/pdf-to-doc",
+  },
   metadataBase: new URL("https://originpdf.com"),
   openGraph: {
     title: "OriginPDF – Free PDF to Word Converter",

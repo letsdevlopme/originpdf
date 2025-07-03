@@ -1,11 +1,11 @@
 
 import { type NextRequest } from "next/server";
 
-export const dynamic = "force-static"; // Generates once at build time
-export const revalidate = 86400; // Optional: Regenerate every 24 hrs
+export const dynamic = "force-static";
+export const revalidate = 86400;
 
 export async function GET(req: NextRequest) {
-  const baseUrl = "https://originpdf.com"; // ✅ Change this to your live domain
+  const baseUrl = "https://originpdf.com";
 
   const routes = [
     "",
