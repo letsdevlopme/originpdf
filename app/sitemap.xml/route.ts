@@ -9,7 +9,6 @@ export async function GET(req: NextRequest) {
 
   const routes = [
     "",
-    "/pdf-to-doc",
     "/privacy-policy",
   ];
 
