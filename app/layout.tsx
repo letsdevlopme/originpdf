@@ -60,6 +60,7 @@ export default function RootLayout({
           name="google-site-verification"
           content="XmU6JSvyIIvpU1-vHU3Wckn0w3JpceXuFgkiatEJmyk"
         />
+         <meta name="monetag" content="c7609531844e775352204b60a8923a4f" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased`}

@@ -3,8 +3,6 @@ import pdfParse from "@cyber2024/pdf-parse-fixed";
 
 export async function POST(req: NextRequest) {
   try {
-    console.log("📥 Received POST /api/convert");
-
     const formData = await req.formData();
     const file = formData.get("file") as File;
 
@@ -15,15 +13,11 @@ export async function POST(req: NextRequest) {
 
     const buffer = Buffer.from(await file.arrayBuffer());
 
-    console.log("📄 File received, parsing PDF...");
-
     const parsed = await pdfParse(buffer);
 
     if (!parsed || !parsed.text) {
       throw new Error("Unable to extract text from this PDF");
     }
-
-    console.log("✅ PDF parsed successfully");
 
     return new Response(JSON.stringify({ text: parsed.text }), {
       status: 200,
