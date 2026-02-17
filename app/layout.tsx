@@ -54,18 +54,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-    <head>
+      <head>
         {/* ✅ Google Search Console Verification */}
         <meta
           name="google-site-verification"
           content="XmU6JSvyIIvpU1-vHU3Wckn0w3JpceXuFgkiatEJmyk"
         />
-         <meta name="monetag" content="c7609531844e775352204b60a8923a4f" />
+        <meta name="monetag" content="c7609531844e775352204b60a8923a4f" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased`}
       >
-       {/* ✅ Google Analytics Script */}
+        {/* ✅ Google Analytics Script */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-YR8VJQNR8P"
           strategy="afterInteractive"
@@ -78,9 +78,18 @@ export default function RootLayout({
             gtag('config', 'G-YR8VJQNR8P');
           `}
         </Script>
-        <Header/>
+        {/* ✅ Monetag Ad Zone */}
+        <Script id="monetag-ad" strategy="afterInteractive">
+          {`
+    (function(s){
+      s.dataset.zone='10619693';
+      s.src='https://nap5k.com/tag.min.js';
+    })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')));
+  `}
+        </Script>
+        <Header />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );
