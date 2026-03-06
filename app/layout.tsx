@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Roboto } from "next/font/google";
+import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import Script from "next/script";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -23,12 +22,13 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://originpdf.com"),
   title: {
-    default: "OriginPDF – Free PDF to DOC Converter",
+    default: "OriginPDF - Free PDF to DOC Converter",
     template: "%s | OriginPDF",
   },
   description:
-    "Convert PDF to Word instantly and free with OriginPDF. No watermark, no signup. Get editable DOCX files from your PDFs with formatting preserved – online and secure.",
+    "Convert PDF to Word instantly and free with OriginPDF. No watermark, no signup. Get editable DOCX files from your PDFs with formatting preserved - online and secure.",
   keywords: [
     "OriginPDF",
     "PDF to Word",
@@ -37,15 +37,59 @@ export const metadata: Metadata = {
     "PDF tools",
     "online docx generator",
     "PDF editing tools",
+    "Word to PDF",
+    "DOC to PDF",
   ],
-  metadataBase: new URL("https://originpdf.com"),
+  authors: [{ name: "OriginPDF" }],
+  creator: "OriginPDF",
+  publisher: "OriginPDF",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
+  manifest: "/manifest.json",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://originpdf.com",
+    siteName: "OriginPDF",
+    title: "OriginPDF - Free PDF to Word Converter",
+    description: "Convert PDF to Word instantly and free. No watermark, no signup required.",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "OriginPDF - Free PDF Converter",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OriginPDF - Free PDF to Word Converter",
+    description: "Convert PDF to Word instantly and free. No watermark, no signup required.",
+    images: ["/images/og-image.jpg"],
+    creator: "@originpdf",
+  },
+  alternates: {
+    canonical: "https://originpdf.com",
+  },
+  verification: {
+    google: "XmU6JSvyIIvpU1-vHU3Wckn0w3JpceXuFgkiatEJmyk",
+  },
 };
-
 
 export default function RootLayout({
   children,
@@ -60,11 +104,21 @@ export default function RootLayout({
           name="google-site-verification"
           content="XmU6JSvyIIvpU1-vHU3Wckn0w3JpceXuFgkiatEJmyk"
         />
-        <meta name="monetag" content="c7609531844e775352204b60a8923a4f" />
+
+        {/* ✅ Google AdSense Verification & Script */}
+        <meta name="google-adsense-account" content="ca-pub-1610131547486552" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased`}
       >
+        {/* ✅ Google AdSense Script */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1610131547486552"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+
         {/* ✅ Google Analytics Script */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-YR8VJQNR8P"
@@ -77,15 +131,6 @@ export default function RootLayout({
             gtag('js', new Date());
             gtag('config', 'G-YR8VJQNR8P');
           `}
-        </Script>
-        {/* ✅ Monetag Ad Zone */}
-        <Script id="monetag-ad" strategy="afterInteractive">
-          {`
-    (function(s){
-      s.dataset.zone='10619693';
-      s.src='https://nap5k.com/tag.min.js';
-    })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')));
-  `}
         </Script>
         <Header />
         {children}

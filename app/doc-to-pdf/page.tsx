@@ -1,52 +1,52 @@
 import { Metadata } from "next";
 import Script from "next/script";
-import PdfToDocConverter from "@/components/PdfToDocConverter";
+import DocToPdfConverter from "@/components/DocToPdfConverter";
 import Image from "next/image";
 import Link from "next/link";
 import FadeInSection from "@/components/Animations/FadeInSection";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 export const metadata: Metadata = {
-  title: "Free PDF to DOC Converter – No Watermark | OriginPDF",
+  title: "Free DOC to PDF Converter - Convert Word to PDF Online | OriginPDF",
   description:
-    "Convert PDF to DOC (Word) online for free. No signup, no watermark. Fast, secure, and accurate conversion with formatting preserved. Try OriginPDF now!",
+    "Convert DOC and DOCX files to PDF online for free. No signup, no watermark. Fast, secure conversion with formatting preserved. Try OriginPDF now!",
   keywords: [
-    "PDF to DOC",
-    "PDF to Word converter",
-    "convert PDF to DOC online",
-    "free PDF converter",
-    "PDF to DOCX",
+    "DOC to PDF",
+    "Word to PDF converter",
+    "convert DOC to PDF online",
+    "free Word to PDF",
+    "DOCX to PDF",
     "online PDF tools",
-    "no watermark PDF converter",
+    "no watermark converter",
   ],
   openGraph: {
-    title: "Free PDF to DOC Converter – No Watermark",
+    title: "Free DOC to PDF Converter - No Watermark",
     description:
-      "Convert your PDFs to editable DOC files instantly. Free, secure, and easy to use.",
-    url: "https://originpdf.com/pdf-to-doc",
+      "Convert your Word documents to PDF instantly. Free, secure, and easy to use.",
+    url: "https://originpdf.com/doc-to-pdf",
     type: "website",
     images: [
       {
-        url: "/images/og-pdf-to-doc.jpg",
+        url: "/images/og-doc-to-pdf.jpg",
         width: 1200,
         height: 630,
-        alt: "OriginPDF - PDF to DOC Converter",
+        alt: "OriginPDF - DOC to PDF Converter",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free PDF to DOC Converter – No Watermark",
+    title: "Free DOC to PDF Converter - No Watermark",
     description:
-      "Convert PDF to Word online for free. Fast, secure, no signup required.",
-    images: ["/images/og-pdf-to-doc.jpg"],
+      "Convert Word to PDF online for free. Fast, secure, no signup required.",
+    images: ["/images/og-doc-to-pdf.jpg"],
   },
   alternates: {
-    canonical: "https://originpdf.com/pdf-to-doc",
+    canonical: "https://originpdf.com/doc-to-pdf",
   },
 };
 
-export default function PdfToDocPage() {
+export default function DocToPdfPage() {
   return (
     <>
       {/* SEO Structured Data */}
@@ -54,12 +54,12 @@ export default function PdfToDocPage() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
-          name: "Free PDF to DOC Converter",
+          name: "Free DOC to PDF Converter",
           description:
-            "Convert your PDFs to editable DOC files online for free. Fast, secure, and easy to use — no signup required.",
+            "Convert your Word documents (DOC/DOCX) to PDF files online for free. Fast, secure, and easy to use — no signup required.",
           operatingSystem: "Web",
           applicationCategory: "Utility",
-          url: "https://www.originpdf.com/pdf-to-doc",
+          url: "https://www.originpdf.com/doc-to-pdf",
           offers: {
             "@type": "Offer",
             price: "0",
@@ -68,7 +68,7 @@ export default function PdfToDocPage() {
           aggregateRating: {
             "@type": "AggregateRating",
             ratingValue: "4.9",
-            reviewCount: "1200",
+            reviewCount: "980",
           },
         })}
       </Script>
@@ -78,17 +78,17 @@ export default function PdfToDocPage() {
         <FadeInSection>
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight">
-              Free PDF to Word Converter (DOCX)
+              Free Word to PDF Converter
             </h1>
             <p className="text-gray-500 mt-2 text-lg sm:text-xl font-normal">
-              Online, Fast & No Watermark
+              Convert DOCX to PDF - Fast & No Watermark
             </p>
           </div>
         </FadeInSection>
 
         {/* Tool Box */}
-        <section className="mt-14 mb-20 flex justify-center">
-          <PdfToDocConverter />
+        <section className="mt-8 mb-20 flex justify-center">
+          <DocToPdfConverter />
         </section>
 
         {/* Related Tools Section */}
@@ -98,32 +98,32 @@ export default function PdfToDocPage() {
               Related Tools
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {/* DOC to PDF Card */}
+              {/* PDF to DOC Card */}
               <Link
-                href="/doc-to-pdf"
-                className="group bg-linear-to-br from-green-50 to-white border border-green-200 rounded-xl p-6 hover:shadow-lg hover:border-green-400 transition-all duration-300"
+                href="/pdf-to-doc"
+                className="group bg-linear-to-br from-blue-50 to-white border border-blue-200 rounded-xl p-6 hover:shadow-lg hover:border-blue-400 transition-all duration-300"
               >
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-green-600 transition">
-                    Word to PDF
+                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition">
+                    PDF to Word
                   </h3>
-                  <ArrowRightIcon className="w-5 h-5 text-green-600 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRightIcon className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Convert Word documents (DOCX) to PDF format. Perfect for sharing professional documents.
+                  Convert PDF files to editable Word documents (DOCX). Extract text and preserve formatting.
                 </p>
               </Link>
 
               {/* Tools Page Card */}
               <Link
                 href="/tools"
-                className="group bg-linear-to-br from-blue-50 to-white border border-blue-200 rounded-xl p-6 hover:shadow-lg hover:border-blue-400 transition-all duration-300"
+                className="group bg-linear-to-br from-green-50 to-white border border-green-200 rounded-xl p-6 hover:shadow-lg hover:border-green-400 transition-all duration-300"
               >
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition">
+                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-green-600 transition">
                     All PDF Tools
                   </h3>
-                  <ArrowRightIcon className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRightIcon className="w-5 h-5 text-green-600 group-hover:translate-x-1 transition-transform" />
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   Explore all our free PDF conversion and editing tools in one place.
@@ -138,23 +138,23 @@ export default function PdfToDocPage() {
           <section className="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-0 py-10 text-gray-800 text-[1.06rem] leading-7">
             <div className="bg-linear-to-br from-white to-gray-50 rounded-xl border border-gray-200 shadow-sm p-6 sm:p-8">
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 font-[Roboto]">
-                Why Convert PDF to Word (DOCX)?
+                Why Convert Word to PDF?
               </h2>
               <p className="font-[Roboto] text-gray-700 text-[1.05rem] leading-relaxed">
-                PDFs are great for sharing — but editing them can be a hassle.
-                Our converter turns static PDFs into fully editable Word
-                documents (DOCX), so you can make changes in Microsoft Word or
-                Google Docs{" "}
-                <strong>without breaking layout or formatting</strong>. Whether
-                you need to update a contract, revise a report, or reuse text,
-                converting to DOC makes it easy.
+                PDF is the universal format for sharing documents. Converting
+                your Word files (DOCX) to PDF ensures{" "}
+                <strong>your formatting stays intact</strong> across all
+                devices and platforms. Whether you're sending a resume,
+                contract, or report, PDFs guarantee professional presentation
+                and prevent accidental edits. Our converter preserves fonts,
+                images, and layout perfectly.
               </p>
               <div className="mt-6">
                 <Image
-                  src="/images/whyoriginpdf.jpg"
+                  src="/images/doc-to-pdf-preview.jpg"
                   width={800}
                   height={400}
-                  alt="How PDF to Word conversion works"
+                  alt="Convert Word documents to PDF with preserved formatting"
                   className="rounded-md w-full shadow-sm"
                   loading="lazy"
                 />
@@ -167,14 +167,14 @@ export default function PdfToDocPage() {
         <FadeInSection>
           <div className="max-w-4xl w-full mx-auto px-4 mt-16">
             <h2 className="text-2xl font-semibold mb-3 text-gray-900 font-[Roboto]">
-              How to Convert PDF to Word
+              How to Convert Word to PDF
             </h2>
             <ol className="list-decimal pl-6 space-y-2 text-gray-800">
-              <li>Upload your PDF using the drag-and-drop area.</li>
+              <li>Upload your DOCX file using drag-and-drop.</li>
               <li>
-                Click <strong>"Convert to Word"</strong> and wait a few seconds.
+                Click <strong>"Convert to PDF"</strong> and wait a few seconds.
               </li>
-              <li>Download your converted Word document instantly.</li>
+              <li>Download your converted PDF document instantly.</li>
             </ol>
           </div>
         </FadeInSection>
@@ -188,9 +188,10 @@ export default function PdfToDocPage() {
             <ul className="list-disc pl-6 space-y-2 text-gray-700">
               <li>No watermark, ever</li>
               <li>No sign-up or email needed</li>
-              <li>Accurate formatting (fonts, images, layout preserved)</li>
+              <li>Perfect formatting preservation (fonts, images, tables)</li>
+              <li>Supports DOCX format</li>
               <li>Works on desktop & mobile</li>
-              <li>Free forever – no hidden limits</li>
+              <li>Free forever - no hidden limits</li>
             </ul>
           </div>
         </FadeInSection>
@@ -205,50 +206,50 @@ export default function PdfToDocPage() {
               {/* FAQ Item 1 */}
               <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Is this PDF to Word converter free?
+                  Why only DOCX files? What about DOC?
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Yes! Our tool is 100% free to use with no signup, payment, or watermark. Convert unlimited PDFs to Word documents.
+                  DOCX is the modern Word format and preserves formatting better. Old DOC files use a different structure that's harder to convert accurately. You can save any DOC file as DOCX in Microsoft Word: File → Save As → Choose DOCX format.
                 </p>
               </div>
 
               {/* FAQ Item 2 */}
               <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Are my files safe during conversion?
+                  Is my file safe and private?
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Absolutely! We use encrypted connections and automatically delete all files immediately after conversion. Your data never touches our servers.
+                  Absolutely! Your files are processed securely with encrypted connections. We automatically delete all files immediately after conversion. Nothing is stored on our servers.
                 </p>
               </div>
 
               {/* FAQ Item 3 */}
               <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Will the formatting be preserved?
+                  What's the file size limit?
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Yes! We preserve fonts, images, tables, and layout structure. Complex PDFs may require minor adjustments, but most documents convert perfectly.
+                  You can convert files up to 10MB in size. This covers most documents, reports, and resumes. For larger files, consider compressing images in your Word document first.
                 </p>
               </div>
 
               {/* FAQ Item 4 */}
               <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Can I convert multiple PDFs at once?
+                  Can I convert multiple files at once?
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Currently, we support one file at a time to ensure the best quality. Batch conversion is on our roadmap for future updates!
+                  Currently, you can convert one file at a time. We're working on batch conversion features for future updates!
                 </p>
               </div>
 
               {/* FAQ Item 5 */}
               <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Does this work on mobile devices?
+                  Will my formatting be preserved?
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Yes! Our converter works smoothly on all modern smartphones, tablets, and desktop computers.
+                  Yes! Our converter preserves headings, paragraphs, bold text, lists, and spacing. Complex formatting like tables and images are also maintained in the PDF output.
                 </p>
               </div>
             </div>
@@ -262,24 +263,37 @@ export default function PdfToDocPage() {
               Your Files Stay Private
             </h2>
             <p className="text-gray-700">
-              We use encrypted connections and delete your file after
-              conversion. No data is ever stored or shared. You're safe with
-              OriginPDF.
+              We use encrypted connections and automatically delete your files
+              after conversion. No data is ever stored or shared. You're safe
+              with OriginPDF.
             </p>
           </div>
         </FadeInSection>
 
-        {/* Supported Formats */}
+        {/* Use Cases */}
         <FadeInSection>
           <div className="max-w-4xl w-full mx-auto px-4 mt-14 mb-16">
             <h2 className="text-2xl font-semibold mb-3 text-gray-900 font-[Roboto]">
-              Supported Formats
+              Common Use Cases
             </h2>
-            <p className="text-gray-700">
-              We currently support{" "}
-              <strong>PDF to DOC (Microsoft Word)</strong>. Support for DOCX,
-              TXT, and RTF is coming soon.
-            </p>
+            <ul className="list-disc pl-6 space-y-2 text-gray-700">
+              <li>
+                <strong>Resumes & CVs:</strong> Send professional documents
+                that look perfect everywhere
+              </li>
+              <li>
+                <strong>Contracts & Legal Documents:</strong> Prevent
+                unauthorized edits
+              </li>
+              <li>
+                <strong>Reports & Presentations:</strong> Share with consistent
+                formatting
+              </li>
+              <li>
+                <strong>Invoices & Forms:</strong> Create printable,
+                professional documents
+              </li>
+            </ul>
           </div>
         </FadeInSection>
       </main>
