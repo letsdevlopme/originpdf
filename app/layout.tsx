@@ -94,19 +94,21 @@ export default function RootLayout({
       </head>
 
       <body className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased`}>
-        {/* ✅ Google AdSense */}
+        {/* ✅ Google Analytics — BOTH scripts required */}
         <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-          strategy="afterInteractive"
-          crossOrigin="anonymous"
-        />
-        {/* ✅ Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js"
+          src="https://www.googletagmanager.com/gtag/js?id=G-YR8VJQNR8P"
           strategy="afterInteractive"
         />
-
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-YR8VJQNR8P', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
         <Header />
 
         {/* ✅ Global Top Ad — shows on every page */}
