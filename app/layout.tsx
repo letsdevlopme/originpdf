@@ -3,18 +3,12 @@ import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import Script from "next/script";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import EzoicAdPlaceholder from "@/components/EzoicAdPlaceholder";
+import EzoicAdsLoader from "@/components/EzoicAdsLoader";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],
@@ -30,15 +24,9 @@ export const metadata: Metadata = {
   description:
     "Convert PDF to Word instantly and free with OriginPDF. No watermark, no signup. Get editable DOCX files from your PDFs with formatting preserved - online and secure.",
   keywords: [
-    "OriginPDF",
-    "PDF to Word",
-    "free PDF converter",
-    "convert PDF online",
-    "PDF tools",
-    "online docx generator",
-    "PDF editing tools",
-    "Word to PDF",
-    "DOC to PDF",
+    "OriginPDF", "PDF to Word", "free PDF converter",
+    "convert PDF online", "PDF tools", "online docx generator",
+    "PDF editing tools", "Word to PDF", "DOC to PDF",
   ],
   authors: [{ name: "OriginPDF" }],
   creator: "OriginPDF",
@@ -49,9 +37,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   icons: {
@@ -67,14 +55,7 @@ export const metadata: Metadata = {
     siteName: "OriginPDF",
     title: "OriginPDF - Free PDF to Word Converter",
     description: "Convert PDF to Word instantly and free. No watermark, no signup required.",
-    images: [
-      {
-        url: "/images/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "OriginPDF - Free PDF Converter",
-      },
-    ],
+    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630, alt: "OriginPDF - Free PDF Converter" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -83,58 +64,63 @@ export const metadata: Metadata = {
     images: ["/images/og-image.jpg"],
     creator: "@originpdf",
   },
-  alternates: {
-    canonical: "https://originpdf.com",
-  },
-  verification: {
-    google: "XmU6JSvyIIvpU1-vHU3Wckn0w3JpceXuFgkiatEJmyk",
-  },
+  alternates: { canonical: "https://originpdf.com" },
+  verification: { google: "XmU6JSvyIIvpU1-vHU3Wckn0w3JpceXuFgkiatEJmyk" },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <head>
-        {/* ✅ Google Search Console Verification */}
-        <meta
-          name="google-site-verification"
-          content="XmU6JSvyIIvpU1-vHU3Wckn0w3JpceXuFgkiatEJmyk"
+        {/* ✅ Ezoic Privacy Scripts — data-cfasync MUST be before src */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js" />
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js" />
+        {/* ✅ Ezoic Header Script */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script async src="//www.ezojs.com/ezoic/sa.min.js" />
+        {/* ✅ Ezoic Init */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.ezstandalone = window.ezstandalone || {}; ezstandalone.cmd = ezstandalone.cmd || [];`,
+          }}
         />
-
-        {/* ✅ Google AdSense Verification & Script */}
-        <meta name="google-adsense-account" content="ca-pub-1610131547486552" />
+        {/* ✅ Ezoic Analytics */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script src="//ezoicanalytics.com/analytics.js" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased`}
-      >
-        {/* ✅ Google AdSense Script */}
+
+      <body className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased`}>
+        {/* ✅ Google AdSense */}
         <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1610131547486552"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          strategy="afterInteractive"
           crossOrigin="anonymous"
+        />
+        {/* ✅ Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js"
           strategy="afterInteractive"
         />
 
-        {/* ✅ Google Analytics Script */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-YR8VJQNR8P"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-YR8VJQNR8P');
-          `}
-        </Script>
         <Header />
+
+        {/* ✅ Global Top Ad — shows on every page */}
+        <EzoicAdPlaceholder id={101} />
+
         {children}
+
+        {/* ✅ Global Bottom Ad — shows on every page */}
+        <EzoicAdPlaceholder id={102} />
+
         <Footer />
+
+        {/* ✅ Single showAds() call for both global placements */}
+        <EzoicAdsLoader placementIds={[101, 102]} />
       </body>
     </html>
   );
