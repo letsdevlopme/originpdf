@@ -89,6 +89,7 @@ export default function PrivacyPolicyPage() {
           <p>
             If you have any questions about this Privacy Policy or how we handle data, please reach out at: <a href="mailto:contact@originpdf.com" className="text-blue-600 hover:underline">contact@originpdf.com</a>
           </p>
+          <span id="ezoic-privacy-policy-embed"></span>
         </section>
 
         <p className="text-sm text-gray-500 mt-12 text-center">
