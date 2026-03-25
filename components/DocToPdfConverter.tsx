@@ -11,7 +11,16 @@ export default function DocToPdfConverter() {
   const [error, setError] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
 
-  // Handle file selection
+  // ✅ Monetag Vignette — fires once per session only
+  const triggerVignetteAd = () => {
+    if (sessionStorage.getItem("monetag_vignette_shown")) return;
+    const s = document.createElement("script");
+    s.dataset.zone = "10785433";
+    s.src = "https://izcle.com/vignette.min.js";
+    (document.body || document.documentElement).appendChild(s);
+    sessionStorage.setItem("monetag_vignette_shown", "1");
+  };
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
     if (selectedFile) {
@@ -19,15 +28,11 @@ export default function DocToPdfConverter() {
     }
   };
 
-  // Validate file type and size
   const validateAndSetFile = (selectedFile: File) => {
-    // Only accept DOCX files
     const validTypes = [
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
     ];
-    const maxSize = 10 * 1024 * 1024; // 10MB
-
-    // Check file extension as backup validation
+    const maxSize = 10 * 1024 * 1024;
     const fileName = selectedFile.name.toLowerCase();
     const isDocx = fileName.endsWith(".docx");
 
@@ -47,7 +52,6 @@ export default function DocToPdfConverter() {
     setError(null);
   };
 
-  // Handle drag and drop
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
     setIsDragging(true);
@@ -61,14 +65,12 @@ export default function DocToPdfConverter() {
   const handleDrop = useCallback((e: React.DragEvent) => {
     e.preventDefault();
     setIsDragging(false);
-
     const droppedFile = e.dataTransfer.files[0];
     if (droppedFile) {
       validateAndSetFile(droppedFile);
     }
   }, []);
 
-  // Convert DOCX to PDF
   const handleConvert = async () => {
     if (!file) return;
 
@@ -89,29 +91,25 @@ export default function DocToPdfConverter() {
         throw new Error(errorData.error || "Conversion failed");
       }
 
-      // Get the PDF blob
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
 
-      // Create download link
       const link = document.createElement("a");
       link.href = url;
       link.download = file.name.replace(/\.docx$/i, ".pdf");
       document.body.appendChild(link);
       link.click();
+      triggerVignetteAd(); // ✅ Vignette fires after download, once per session
       document.body.removeChild(link);
 
-      // Cleanup
       window.URL.revokeObjectURL(url);
 
-      // Success confetti
       confetti({
         particleCount: 100,
         spread: 70,
         origin: { y: 0.6 },
       });
 
-      // Reset
       setFile(null);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Conversion failed. Please try again.");
@@ -152,11 +150,9 @@ export default function DocToPdfConverter() {
             }`}
           >
             <CloudArrowUpIcon className="w-16 h-16 mx-auto text-blue-500 mb-6" />
-            
             <p className="text-lg sm:text-xl font-medium text-gray-700 mb-2">
               Drop your Word file here or click to upload
             </p>
-            
             <label className="inline-block mt-4 cursor-pointer">
               <input
                 type="file"
@@ -168,13 +164,11 @@ export default function DocToPdfConverter() {
                 Choose File
               </span>
             </label>
-
             <p className="text-xs text-gray-500 mt-6">
               Supports DOCX format • Max 10MB
             </p>
           </div>
         ) : (
-          /* File Selected State */
           <div className="border-2 border-green-200 bg-green-50 rounded-xl p-8">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-4">

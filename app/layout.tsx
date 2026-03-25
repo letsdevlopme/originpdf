@@ -3,8 +3,6 @@ import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import Script from "next/script";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import EzoicAdPlaceholder from "@/components/EzoicAdPlaceholder";
-import EzoicAdsLoader from "@/components/EzoicAdsLoader";
 import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -73,28 +71,8 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <head>
-        {/* ✅ Ezoic Privacy Scripts — data-cfasync MUST be before src */}
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js" />
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js" />
-        {/* ✅ Ezoic Header Script */}
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script async src="//www.ezojs.com/ezoic/sa.min.js" />
-        {/* ✅ Ezoic Init */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.ezstandalone = window.ezstandalone || {}; ezstandalone.cmd = ezstandalone.cmd || [];`,
-          }}
-        />
-        {/* ✅ Ezoic Analytics */}
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script src="//ezoicanalytics.com/analytics.js" />
-      </head>
-
       <body className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased`}>
-        {/* ✅ Google Analytics — BOTH scripts required */}
+        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-YR8VJQNR8P"
           strategy="afterInteractive"
@@ -109,20 +87,10 @@ export default function RootLayout({
             });
           `}
         </Script>
+
         <Header />
-
-        {/* ✅ Global Top Ad — shows on every page */}
-        <EzoicAdPlaceholder id={101} />
-
         {children}
-
-        {/* ✅ Global Bottom Ad — shows on every page */}
-        <EzoicAdPlaceholder id={102} />
-
         <Footer />
-
-        {/* ✅ Single showAds() call for both global placements */}
-        <EzoicAdsLoader placementIds={[101, 102]} />
       </body>
     </html>
   );
